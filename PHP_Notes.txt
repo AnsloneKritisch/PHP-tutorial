@@ -1,3 +1,16 @@
 PHP is a popular general-purpose scripting language that is especially suited to web development.
-You need to download Xammp app
+
+PHP was originallly created by Rasmus Lerdorf in 1994
+
+Instead of lots of commands to out put HTML , Php pages contain HTML with embedded code that does "some thing " (e.g output "Hi, i'm a Hrry's PHP Script ! ")
+
+You need to download Xammp app for Learning or using PHP 
+>>>>
 Then Make a Folder in HtDocs
+>>>>
+Then open Xammp and start SQL and PHP the Click on admin in SQL Line 
+>>>>
+Then Local Host Will be open in the your browser and you can write the name of the Folder in the place where the link has be written .
+>>>>
+Then you will get the output of the codes written in the folder in HtDocs
+>>>>
