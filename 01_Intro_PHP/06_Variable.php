@@ -13,7 +13,6 @@ $a = 10 ;
 $b = 20 ;
 
 echo "The Number in Varible a is = ", $a ;
-
-
+// If we want to print the variable in the screen then write it outside the " comas and write the name of the variabale
 
 ?>
