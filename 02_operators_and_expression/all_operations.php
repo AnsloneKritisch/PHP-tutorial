@@ -8,10 +8,10 @@ $f = $a * $b ;
 $g = $b % $a ;
 
 echo "The sum of " , $a , " and " , $b , " is = " , $c ;
-echo "The difference of " , $b , " and " , $a , " is = " , $d ;
-echo "The product of " , $a , " and " , $b , " is = " , $f ;
-echo "The division of " , $b , " and " , $a , " is = " , $e ;
-echo "The remainder of " , $b , " and " , $a , " after division is = " , $e ;
+echo "<br> <br> The difference of " , $b , " and " , $a , " is = " , $d ;
+echo "<br> <br> The product of " , $a , " and " , $b , " is = " , $f ;
+echo "<br> <br> The division of " , $b , " and " , $a , " is = " , $e ;
+echo "<br> <br> The remainder of " , $b , " and " , $a , " after division is = " , $e ;
 
 
 ?>
