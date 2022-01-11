@@ -1,6 +1,6 @@
 <?php
 
-$a = 100 ;
+$a = 1500 ;
 
 echo " All the Factors of ", $a ," are - >>> " ;
 
