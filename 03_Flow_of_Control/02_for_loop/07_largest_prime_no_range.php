@@ -4,9 +4,9 @@ $starting = 1 ;
 $ending = 20 ;
 $c = 0 ;
 
-echo " All the Prime numbers between the range " , $starting , " and " , $ending , " are >>> " ;
+echo " The Largest Prime number between the range " , $starting , " and " , $ending , " is >>> " ;
 
-for ($i=$starting; $i <= $ending ; $i++)
+for ($i=$ending; $i >= $starting ; $i--)
 { 
     $c = 0 ;
     
@@ -21,6 +21,7 @@ for ($i=$starting; $i <= $ending ; $i++)
     if ($c == 2)
     {
         echo $i , " ; " ;
+        break ;
     }  
 }
 ?>
