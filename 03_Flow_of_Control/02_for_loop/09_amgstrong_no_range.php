@@ -1,16 +1,21 @@
 <?php
-
-$a = 153 ;
-$r;
-$amg = 0 ;
-
-$b = $a ;
-
-for (;$b>0;)
+$starting = 1 ;
+$ending = 1000 ;
+for ($i=$starting; $i <= $ending ; $i++)
 {
-    $r = $b%10 ;
-    $amg = $amg + ($r*$r*$r) ;
-    p = p/10 ;
+    $amg = 0 ;
+    $a = $i ;
+    for (; $a > 0 ;)
+    { 
+        $r = $a%10 ;
+        $amg = $amg + ($r*$r*$r) ;
+        $a = $a/10 ;
+    }
+    if ($amg == $i)
+    {
+        echo $i , " : " ;
+    }
+
 }
 
 
