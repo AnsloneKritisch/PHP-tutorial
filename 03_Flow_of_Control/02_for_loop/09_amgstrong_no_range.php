@@ -1,6 +1,7 @@
 <?php
 $starting = 1 ;
 $ending = 1000 ;
+echo "All the Amstrong Number in range ",$starting," and ",$ending, " are >>> " ;
 for ($i=$starting; $i <= $ending ; $i++)
 {
     $amg = 0 ;
