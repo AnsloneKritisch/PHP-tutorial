@@ -1,8 +1,8 @@
 <?php
 
-$a = array(10,20,30,40,50) ;
+$a = array(11,20,31,40,53) ;
 $b = count($a) ;
-
+echo "All the Prime no's in the arrray are  >>> " ;
 for($i=0 ; $i < $b ; $i++)
 {
     $x = $a[$i] ;
@@ -17,7 +17,7 @@ for($i=0 ; $i < $b ; $i++)
     }
     if ($c == 2)
     {
-        echo $x ;
+        echo $x , " ; ";
     }
 }
 ?>
