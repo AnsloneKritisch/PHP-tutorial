@@ -1,0 +1,11 @@
+According to string interpolation 
+__________________________________
+
+ Rule 1 :-
+ Inside a double Quote you can't use a double Quote
+
+ Rule 2 :-
+ Inside a Single Quote you can't use a Single Quote
+
+ Rule 3 :-
+ Inside double Quote you can use single and inside Quote
