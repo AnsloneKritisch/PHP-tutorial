@@ -1,6 +1,10 @@
+<!-- WAP to Explain Function of implode Function -->
 <?php
 $arr = array('Hello','World!','Beautiful','Day!');
-echo implode("; ",$arr);
+$b = implode("; ",$arr);
+echo $b;
 echo "<br> ";
+// print_r command helps to understand how does computer stores all the data
 print_r($arr) ;
+
 ?> 
