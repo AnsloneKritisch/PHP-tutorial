@@ -1,10 +1,12 @@
 <!-- WAP to Explain Function of implode Function -->
-<?php
-$arr = array('Hello','World!','Beautiful','Day!');
-$b = implode("; ",$arr);
-echo $b;
-echo "<br> ";
-// print_r command helps to understand how does computer stores all the data
-print_r($arr) ;
 
+<?php
+
+$arr = array('Hello','World!','Beautiful','Day!');
+
+// implode function mainly helps to add signs or delemeters between between arrays
+// $b = implode(" sign ",$array_name);
+
+$b = implode("; ",$arr);
+echo $b ;
 ?> 
