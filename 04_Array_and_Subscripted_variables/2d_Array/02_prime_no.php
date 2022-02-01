@@ -11,9 +11,20 @@ for ($i=0; $i < $b ; $i++)
 {
     for ($j=0; $j < $b ; $j++)
     { 
-        echo $a[$i][$j] ;
+        $c = echo $a[$i][$j] ;
+        $d = 0 ;
+        for ($i=1; $i <= $c ; $i++)
+        { 
+            if ($c % $i == 0)
+            {
+                $d = $d + 1 ;
+            }
+        }
+        if ($d == 2)
+        {
+            echo $c ;
+        }
     }
-    echo "<br>" ;
 }
 
 ?>
