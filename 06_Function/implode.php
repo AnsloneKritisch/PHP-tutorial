@@ -8,5 +8,5 @@ $arr = array('Hello','World!','Beautiful','Day!');
 // $b = implode(" sign ",$array_name);
 
 $b = implode("; ",$arr);
-echo $b ;
+echo $b ;  
 ?> 
