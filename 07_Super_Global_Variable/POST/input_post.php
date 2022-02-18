@@ -33,7 +33,6 @@ if (isset($_POST["rsub"]))
         <div>
             <input type="submit" value="Submit" name="rsub">
         </div>
-
     </form>
     
 </body>
