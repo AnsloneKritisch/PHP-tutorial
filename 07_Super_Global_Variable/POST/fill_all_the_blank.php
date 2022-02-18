@@ -4,8 +4,16 @@
 
 if (isset($_POST["rsub"]))
 {
-    $name = $_POST["rname"] ;
-    echo "Your name is ", $name ;
+    if ($_POST["rname"] == "")
+    {
+        echo "Fill all the Field " ;
+    }
+    else
+    {
+        $name = $_POST["rname"] ;
+        echo "Your name is ", $name ;
+    }
+    
 }
 
 ?>
