@@ -1,3 +1,5 @@
+<!-- PHP Codes -->
+
 <?php
 
 if (isset($_GET["rsub"]))
@@ -6,6 +8,9 @@ if (isset($_GET["rsub"]))
   echo "Your name is ", $name ;
 }
 ?>
+
+<!-- HTML Codes  -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
