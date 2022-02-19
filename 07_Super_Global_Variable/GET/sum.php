@@ -4,7 +4,17 @@
 
 if (isset($_GET['rsub']))
 {
-    echo "Clicked";
+    if ( ($_GET['no1']=="") || ($_GET['no2']=="") )    
+    {
+        echo "<script>window.alert(' Please Fill All The Fields')</script>";
+    }
+}
+
+else
+{
+    $n1 = $_GET['no1'] ;
+    $n2 = $_GET['no2'] ;
+
 }
 
 ?>
@@ -29,10 +39,13 @@ if (isset($_GET['rsub']))
             border: none;
             border-bottom: 2px solid black;
         }
+        input{
+            padding:4px;
+        }
     </style>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="" method="GET">
         <div>
             First Number : <input type="text" name="no1" placeholder="Write First Number">
         </div>
@@ -42,7 +55,11 @@ if (isset($_GET['rsub']))
         </div>
         <br>
         <div>
-            <input type="submit" value="Submit Now" name="rsub">
+            <input type="submit" value="Add Now" name="rsub">
+        </div>
+        <br>
+        <div>
+            <h1>Adding Numbers</h1>
         </div>
         <br>
         <div>
@@ -51,3 +68,8 @@ if (isset($_GET['rsub']))
     </form>
 </body>
 </html>
+
+
+<?php
+echo $n1 ;
+?>
