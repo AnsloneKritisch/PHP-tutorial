@@ -8,16 +8,18 @@ if (isset($_GET['rsub']))
     {
         echo "<script>window.alert(' Please Fill All The Fields')</script>";
     }
+    else
+    {
+        $n1 = $_REQUEST['no1'] ;
+        $n2 = $_REQUEST['no2'] ;
+        $sum = $n1 + $n2 ;
+    }
 }
-
-else
-{
-    $n1 = $_GET['no1'] ;
-    $n2 = $_GET['no2'] ;
-
-}
-
 ?>
+
+
+
+
 
 
 <!-- HTML Form For Taking Input for sum -->
@@ -38,6 +40,9 @@ else
         #result{
             border: none;
             border-bottom: 2px solid black;
+            margin: 4px;            
+            width: 50px;
+            text-align: center;
         }
         input{
             padding:4px;
@@ -63,13 +68,9 @@ else
         </div>
         <br>
         <div>
-            Result : <input type="text" placeholder="The Result of Sum Is" id="result">
+            Result : <input type="text" placeholder="The Result of Sum Is" id="result" value="<?php if(isset($sum)){echo $sum;} ?>">
         </div>
     </form>
 </body>
 </html>
 
-
-<?php
-echo $n1 ;
-?>
