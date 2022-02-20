@@ -2,9 +2,9 @@
 
 <?php
 
-if (isset($_GET['rsub']))
+if (isset($_POST['rsub']))
 {
-    if ( ($_GET['no1']=="") || ($_GET['no2']=="") )    
+    if ( ($_POST['no1']=="") || ($_POST['no2']=="") )    
     {
         echo "<script>window.alert(' Please Fill All The Fields')</script>";
     }
@@ -45,7 +45,7 @@ if (isset($_GET['rsub']))
     </style>
 </head>
 <body>
-    <form action="" method="GET">
+    <form action="" method="POST">
         <div>
             First Number : <input type="text" name="no1" placeholder="Write First Number">
         </div>
