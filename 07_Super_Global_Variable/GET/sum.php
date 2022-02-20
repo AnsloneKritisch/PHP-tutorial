@@ -63,7 +63,7 @@ if (isset($_GET['rsub']))
         </div>
         <br>
         <div>
-            Result : <input type="text" placeholder="The Result of Sum Is" id="result" value="<?php if(isset($sum)){echo $sum;} ?>">
+            Result : <input type="text" placeholder="Result" id="result" value="<?php if(isset($sum)){echo $sum;} ?>">
         </div>
     </form>
 </body>
