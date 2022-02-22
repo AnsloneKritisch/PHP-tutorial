@@ -22,8 +22,19 @@ else
 
 ?>
 
+<!-- Ending PHP Codes for SQL Connection -->
 
+<!-- Starting PHP Codes for Creating Tables -->
 
+<?php
 
+$sql = " CREATE TABLE student
+(
+     sl_no int(10) AUTO_INCREMENT primary key ,
+     Name varchar(30) , 
+     Address varchar
+) " ;
+
+?>
 
 <!-- Ending PHP Codes for SQL Connection -->
