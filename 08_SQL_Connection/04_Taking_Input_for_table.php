@@ -80,4 +80,15 @@ else
 
 <!-- Ending HTML Codes for talking Input -->
 
-<!-- Stating PHP Codes for  -->
+<!-- Stating PHP Codes for Collectind data and Store it -->
+
+<?php
+
+if (isset($_REQEST['reg']))
+{
+    echo ("  ") ;
+}
+
+?>
+
+<!-- Ending PHP Codes for Collectind data and Store it -->
