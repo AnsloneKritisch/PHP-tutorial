@@ -24,6 +24,8 @@ else
 
 <!-- Ending PHP Codes for SQL Connection -->
 
+
+
 <!-- Starting PHP Codes for Creating Tables -->
 
 <?php
@@ -32,8 +34,20 @@ $sql = " CREATE TABLE student
 (
      sl_no int(10) AUTO_INCREMENT primary key ,
      Name varchar(30) , 
-     Address varchar
+     Address varchar(40) ,
+     Fees dec(10,2)
+
 ) " ;
+
+if (mysqli_query($conn,$sql))
+{
+    echo ("<br> Table Created Sucessfully") ;   
+}
+
+else
+{
+    echo ("<br> No Table Created <br> 404 Error ") ;   
+}
 
 ?>
 
