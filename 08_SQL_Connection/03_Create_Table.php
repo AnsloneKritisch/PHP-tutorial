@@ -10,9 +10,19 @@ $db = "school" ;
 
 $conn = mysqli_connect($host , $name , $pass , $db) ;
 
+if (!$conn)
+{
+    die("Connection Aborted") ;
+}
 
+else
+{
+    echo ("Connected") ;
+}
 
 ?>
+
+
 
 
 
