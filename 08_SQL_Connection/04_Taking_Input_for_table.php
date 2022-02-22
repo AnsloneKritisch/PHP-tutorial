@@ -11,12 +11,12 @@ $conn = mysqli_connect( $host , $user , $pass , $db ) ;
 
 if (!$conn)
 {
-    die ("Connection Failed") ;
+    echo ('<script>window.alert("404 Error")</script>') ;
 }
 
 else
 {
-    echo ("Connected") ;    
+    echo ('<script>window.alert("Welcome To Registration Page")</script>') ;    
 }
 ?>
 
@@ -79,3 +79,5 @@ else
 </html>
 
 <!-- Ending HTML Codes for talking Input -->
+
+<!-- Stating PHP Codes for  -->
