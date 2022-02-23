@@ -14,10 +14,12 @@ if (!$conn)
     echo ('<script>window.alert("404 Error")</script>') ;
 }
 
-else
-{
-    echo ('<script>window.alert("Welcome To Registration Page")</script>') ;    
-}
+// else
+// {
+//     echo ('<script>window.alert("Welcome To Registration Page")</script>') ;    
+// }
+
+
 ?>
 
 <!-- Ending PHP Codes for connecting SQL Database -->
@@ -84,9 +86,32 @@ else
 
 <?php
 
-if (isset($_REQEST['reg']))
+if (isset($_REQUEST['reg']))
 {
-    echo ("  ") ;
+    if ( ($_REQUEST['Name']=="") || ($_REQUEST['Address']=="") || ($_REQUEST['Fees']=="") ) 
+    {
+        echo ('<script>window.alert(" Please Fill al the Fields ")</script>') ;
+    }
+
+    else
+    {
+        $Name = $_REQUEST['Name'] ;
+        $Address = $_REQUEST['Address'] ;
+        $Fees = $_REQUEST['Fees'] ;
+
+        $sql = " INSERT INTO student(Name,Address,Fees)VALUES('$Name','$Address',$Fees) " ;
+
+        if (mysqli_query($conn,$sql))
+        {
+            echo ' <script>window.alert("Data Inserted Succesfully")</script> ' ;
+        }
+        
+        else
+        {
+            echo ' <script>window.alert("Data Inserted Succesfully")</script> ' ;
+        }
+
+    }
 }
 
 ?>
