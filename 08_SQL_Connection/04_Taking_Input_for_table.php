@@ -116,4 +116,4 @@ if (isset($_REQUEST['reg']))
 
 ?>
 
-<!-- Ending PHP Codes for Collectind data and Store it -->
+<!-- Ending PHP Codes for Collecting data and Store it -->
