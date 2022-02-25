@@ -43,15 +43,15 @@
  
  $sql = "CREATE DATABASE office " ;
 
- if (if(mysqli_query($conn,$sql)))
+ if (mysqli_query($conn,$sql))
  {
-     echo("Database Created Sucessfully")
+     echo("<h1>Database Created Sucessfully</h1>") ;
      
  }
 
  else
  {
-     echo ("<script>windows.alert(' 404 Error </script>")
+     echo ("<script>windows.alert(' 404 Error ')</script>") ;
      
  }
 
