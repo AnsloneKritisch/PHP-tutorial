@@ -45,7 +45,13 @@
 
  if (if(mysqli_query($conn,$sql)))
  {
+     echo("Database Created Sucessfully")
      
+ }
+
+ else
+ {
+     echo ("<script>windows.alert(' 404 Error </script>")
      
  }
 
