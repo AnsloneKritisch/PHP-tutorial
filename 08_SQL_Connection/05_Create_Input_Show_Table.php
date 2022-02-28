@@ -10,59 +10,70 @@
  -->
 
 
- 
+
+
  
  <!-- Starting PHP codes for Creating connections with SQL  -->
 
- <?php
+<?php
  
  $host = "localhost" ;
  $name = "root" ;
  $pass = "" ;
+ $db = "office" ;
 
- $conn = mysqli_connect($host , $name , $pass) ;
+ $conn = mysqli_connect($host , $name , $pass , $db) ;
 
-//  This debugging to check the connection has been established successfully
 
  if (!$conn)
  {
-     echo "<script>window.alert('404 Error')</script>" ;
-     
- }
-
- ?>
-
- <!-- Ending PHP codes for Creating connections with SQL  -->
-
-
-<!-- 
-
- <!-- Starting PHP codes for Creating Database -->
- 
- <?php
- 
- $sql = "CREATE DATABASE office " ;
-
- if (mysqli_query($conn,$sql))
- {
-     echo("<h1>Database Created Sucessfully</h1>") ;
+     echo "<script>window.alert('404 Error')</script>" ;     
  }
 
  else
  {
-     echo ("<script>windows.alert(' 404 Error ')</script>") ;  
+     echo "<script>window.alert('Connected Sucessfully')</script>" ;     
  }
 
- ?>
+ ?> 
  
- <!-- Ending PHP codes for Creating Database -->
+ <!-- Ending PHP codes for Creating connections with SQL  -->
 
--->
-
-
+ 
 
 
-<!-- Starting HTML Codes for Registration -->
+
+ <!-- Starting PHP Codes Creating Tables -->
+
+ <?php
+ 
+ $sql = " CREATE TABLE job 
+ (
+     Srno int(10) AUTO_INCREMENT PRIMARY KEY ,
+     Name vanchar(200) ,
+     Address varchar(200) ,
+     Fees dec(10,2)
+ ) ";
+
+ if (mysqli_query($conn,$sql))
+ {
+     echo "<script>window.alert('Table Created') </script>" ;
+ }
+
+ else
+ {
+    echo "<script>window.alert('404 Error Table can't be created ') </script>" ;
+ }
+ 
+ ?>
+
+ <!-- Ending PHP Codes Creating Tables -->
+
+
+
+
+
+ <!-- Starting HTML Codes for Registration -->
  
  <!DOCTYPE html>
 <html lang="en">
@@ -144,3 +155,35 @@
  
 
  <!-- Ending HTML Codes for Registration -->
+
+ <!-- Starting PHP Code for targeting -->
+
+ <?php
+ 
+ if ( isset($_REQUEST['reg']))
+ {
+     if ( ($_REQUEST['Name']=="") || ($_REQUEST['Address']=="") || ($_REQUEST['Fees']=="") )
+     {
+         echo "<script>window.alert('Fill all the Fields')</script>" ;
+         
+     }
+
+    //  else
+    //  {
+    //      $Name = $_REQUEST['Name'] ;
+    //      $Address = $_REQUEST['Address'] ;
+    //      $Fees = $_REQUEST['Fees'] ;
+
+    //      $sql = " INSERT INTO "
+
+         
+    //  }
+
+ }
+ 
+ 
+ 
+ 
+ ?>
+
+ <!-- Ending PHP Code for targeting -->
