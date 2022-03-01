@@ -47,13 +47,9 @@
 
  <?php
  
- $sql = " CREATE TABLE job 
- (
-     Srno int(10) AUTO_INCREMENT PRIMARY KEY ,
-     Name vanchar(200) ,
-     Address varchar(200) ,
-     Fees dec(10,2)
- ) ";
+ $sql="CREATE TABLE workers
+(Srno int(10) AUTO_INCREMENT PRIMARY KEY,Name varchar(200),Address varchar(200),Fees dec(10,2))";
+
 
  if (mysqli_query($conn,$sql))
  {
