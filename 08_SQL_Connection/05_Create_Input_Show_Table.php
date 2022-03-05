@@ -10,8 +10,6 @@
  -->
 
 
-
-
  
  <!-- Starting PHP codes for Creating connections with SQL  -->
 
@@ -30,43 +28,9 @@
      echo "<script>window.alert('404 Error')</script>" ;     
  }
 
- else
- {
-     echo "<script>window.alert('Connected Sucessfully')</script>" ;     
- }
-
  ?> 
  
  <!-- Ending PHP codes for Creating connections with SQL  -->
-
- 
-
-
-
- <!-- Starting PHP Codes Creating Tables -->
-
- <?php
- 
- $sql="CREATE TABLE workers
-(Srno int(10) AUTO_INCREMENT PRIMARY KEY,Name varchar(200),Address varchar(200),Fees dec(10,2))";
-
-
- if (mysqli_query($conn,$sql))
- {
-     echo "<script>window.alert('Table Created') </script>" ;
- }
-
- else
- {
-    echo "<script>window.alert('404 Error Table can't be created ') </script>" ;
- }
- 
- ?>
-
- <!-- Ending PHP Codes Creating Tables -->
-
-
-
 
 
  <!-- Starting HTML Codes for Registration -->
@@ -151,6 +115,7 @@
  
 
  <!-- Ending HTML Codes for Registration -->
+ 
 
  <!-- Starting PHP Code for targeting -->
 
@@ -163,18 +128,23 @@
          echo "<script>window.alert('Fill all the Fields')</script>" ;
          
      }
+     else
+     {
+        $Name=$_REQUEST['Name'];
+        $Address=$_REQUEST['Address'];
+        $Fees=$_REQUEST['Fees'];
 
-    //  else
-    //  {
-    //      $Name = $_REQUEST['Name'] ;
-    //      $Address = $_REQUEST['Address'] ;
-    //      $Fees = $_REQUEST['Fees'] ;
-
-    //      $sql = " INSERT INTO "
-
+        $sql = "INSERT INTO work( Name , Address , Fees )VALUES('$Name' , '$Address' , '$Fees') " ;
+        if(mysqli_query($conn,$sql))
+        {
+            echo "<script>window.alert('Data Inserted Succesfully')</script>" ;
+        }
+        else
+        {
+            echo "<script>window.alert('Data Couldn't be Inserted')</script>" ;
+        }
          
-    //  }
-
+     }
  }
  
  
