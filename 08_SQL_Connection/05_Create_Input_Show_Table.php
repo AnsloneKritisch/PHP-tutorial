@@ -134,7 +134,7 @@
         $Address=$_REQUEST['Address'];
         $Fees=$_REQUEST['Fees'];
 
-        $sql = "INSERT INTO work( Name , Address , Fees )VALUES('$Name' , '$Address' , '$Fees') " ;
+        $sql = "INSERT INTO workers(Name,Address,Fees)VALUES('$Name' , '$Address' , '$Fees')";
         if(mysqli_query($conn,$sql))
         {
             echo "<script>window.alert('Data Inserted Succesfully')</script>" ;
