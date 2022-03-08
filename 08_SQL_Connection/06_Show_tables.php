@@ -11,26 +11,24 @@
 <!-- Starting PHP for Database Connection -->
 
 <?php
+ 
+ $host = "localhost" ;
+ $name = "root" ;
+ $pass = "" ;
+ $db = "office" ;
 
-$host = "localhost";
-$user = "root";
-$pass = "" ;
-$db = "" ;
-
-$conn = mysqli_connect($host,$user,$pass,$db) ;
-
-if (!$conn)
-{
-    echo ("<script>windows.alert('Database Connected')</script>") ;
-}
+ $conn = mysqli_connect($host , $name , $pass , $db) ;
 
 
-else
-{
-    echo ("<script>windows.alert('Database not Connected')</script>") ;  
-}
+ if (!$conn)
+ {
+     echo "<script>window.alert('404 Error')</script>" ;     
+ }
+ else
+ {
+     echo "<script>window.alert('Database Connected')</script>" ;     
+ }
 
-
-?>
+?> 
 
 <!-- Ending PHP for Database Connection -->
