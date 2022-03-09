@@ -39,15 +39,18 @@
 $sql = "SELECT * FROM workers" ;
 
 $result = mysqli_query($conn,$sql) ;
+
 // mysqli_num_rows() -> This Function helps us know no of data insertd / no of rows ...
 $number_of_tables =  mysqli_num_rows($result) ;
 echo '<h3 style="text-align:center;"> Total Number of tables Created =  " ' .$number_of_tables. ' " </h3>'  ;
 
+// Creating Table in PHP
 if (mysqli_num_rows($result)>0)
 {
     echo '<table border="3" style="padding: 6px; margin: auto; text-align: center; width: 350px; ">';
     echo "<tr>";
     echo "<thead>";
+    echo "<th>ID</th>";
     echo"<th>Name</th>";
     echo"<th>Address</th>";
     echo"<th>Fees</th>";
@@ -58,6 +61,7 @@ if (mysqli_num_rows($result)>0)
     while($row=mysqli_fetch_assoc($result))
 {
     echo"<tr>";
+    echo"<td>".$row['Srno']."</td>";
     echo"<td>".$row['Name']."</td>";
     echo"<td>".$row['Address']."</td>";
     echo"<td>".$row['Fees']."</td>";
