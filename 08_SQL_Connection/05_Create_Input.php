@@ -33,7 +33,7 @@
  <!-- Ending PHP codes for Creating connections with SQL  -->
 
 
- <!-- Starting HTML Codes for Registration -->
+<!-- Starting HTML Codes for Registration -->
  
  <!DOCTYPE html>
 <html lang="en">
