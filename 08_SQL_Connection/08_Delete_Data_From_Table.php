@@ -66,8 +66,8 @@
             font-family:cursive;
             padding: 58px;
             background-image: linear-gradient(to bottom, #f22e2e, #b404cd);
-            background-repeat: no-repeat ;
-            background-size: 8888px 886px ;
+            /* background-repeat: no-repeat ; */
+            background-size: 88888px 1806px ;
             
         }
 
@@ -80,9 +80,6 @@
 
         input:focus{
             outline: none;
-        }
-
-        #box{
         }
         
         #box1{
@@ -110,6 +107,10 @@
             box-shadow: 5px 11px 6px rgba(0,0,0,1);
 
         }
+        #btn{
+            border: 2px solid black;
+        }
+        
 
     </style>
 
@@ -191,7 +192,7 @@
         {
             echo "<br>" ;
             echo "<br>" ;
-            echo '<table border="2" style="border: 2px solid black; text-align: center; margin: auto; padding: 7px ; width: 400px ; background-color: white; box-shadow: 13px 17px 10px rgba(0,0,0,1); position: relative;top: 90px;">' ;
+            echo '<table border="2" style="border: 2px solid black; text-align: center; margin: auto; padding: 0px ; width: 400px ; background-color: white; box-shadow: 13px 17px 10px rgba(0,0,0,1); position: relative;top: 135px;">' ;
             echo "<caption><h2>The Requird Details Are Here !<h2> </caption>";
             echo "<tr>" ;
             echo "<thead>" ;
@@ -208,10 +209,21 @@
                 echo "<td>".$row['Name']."</td>";
                 echo "<td>".$row['Address']."</td>";
                 echo "<td>".$row['Fees']."</td>";
-                echo "<td>"
-                
+                echo '<td> <form action="" method="POST"
+                style="
+                padding: 0px;
+                margin: 0px;
+                border: 2px solid white ;
+                width : 120px;
+                height: 50px;
+                background-color: white;
+                box-shadow: 0px 0px 0px rgba(0,0,0,0);
+                ">
+                <input type="hidden" name="Srno" value='.$row["Srno"].'>
+                <input type="submit" value="Delete" name="rdel" id="btn">
+                </form>
+                </td>';
 
-                "</td>";
                 echo "</tr>";
             }
             
@@ -230,3 +242,31 @@
  ?>
  
  <!-- Ending PHP Codes for Creating Table -->
+
+
+
+
+
+
+ <!-- Starting PHP Codes to Delete Data -->
+ <?php
+
+ if (isset($_REQUEST['rdel']))
+ {
+    $Srno = $_REQUEST['Srno'] ;
+    $sql = "DELETE FROM worker WHERE Srno='".$Srno."' " ;
+    if (mysqli_query($conn,$sql))
+    {
+        echo '<script>window.alert("Data Deleted Succesfully")</script>' ;
+    }
+
+    else
+    {
+        echo '<script>window.alert("Unable to Delete Data")</script>'   ; 
+    }
+ }
+
+ ?>
+
+ <!-- Ending PHP Codes to Delete Data -->
+ 
