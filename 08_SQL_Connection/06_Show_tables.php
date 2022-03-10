@@ -42,6 +42,7 @@ $result = mysqli_query($conn,$sql) ;
 
 // mysqli_num_rows() -> This Function helps us know no of data insertd / no of rows ...
 $number_of_tables =  mysqli_num_rows($result) ;
+
 echo '<h3 style="text-align:center;"> Total Number of tables Created =  " ' .$number_of_tables. ' " </h3>'  ;
 
 // Creating Table in PHP
