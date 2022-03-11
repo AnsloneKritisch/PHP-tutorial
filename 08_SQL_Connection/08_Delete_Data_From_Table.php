@@ -2,11 +2,10 @@
     Objectives
     ____________
 
-    1. We Will Create a Database
-    2. Create a Table
-    3. Take input from the form
-    4. Print all your data 
-    5. Delete Data 
+    1. Database Connection
+    2. Take input from the form
+    3. Print all your data 
+    4. Delete Data 
 
  -->
 
@@ -257,6 +256,7 @@
     if (mysqli_query($conn,$sql))
     {
         echo '<script>window.alert("Data Deleted Succesfully")</script>' ;
+        echo '<script>location.href="08_Delete_Data_From_Table.php"</script>' ;
     }
 
     else
