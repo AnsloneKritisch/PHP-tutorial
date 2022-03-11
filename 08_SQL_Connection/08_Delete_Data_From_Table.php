@@ -6,6 +6,7 @@
     2. Create a Table
     3. Take input from the form
     4. Print all your data 
+    5. Delete Data 
 
  -->
 
@@ -186,59 +187,57 @@
 
  if (isset($_REQUEST['treg']))
  {
+     
     if (mysqli_num_rows($result)>0)
     {
-        if (mysqli_num_rows($result)>0)
+        echo "<br>" ;
+        echo "<br>" ;
+        echo '<table border="2" style="border: 2px solid black; text-align: center; margin: auto; padding: 0px ; width: 400px ; background-color: white; box-shadow: 13px 17px 10px rgba(0,0,0,1); position: relative;top: 135px;">' ;
+        echo "<caption><h2>The Requird Details Are Here !<h2> </caption>";
+        echo "<tr>" ;
+        echo "<thead>" ;
+        echo "<th>Name</th>" ;
+        echo "<th>Address</th>" ;
+        echo "<th>Fees</th>" ;
+        echo "<th>Delete</th>" ;
+        echo "</thead>" ;
+        echo "</tr>" ;
+        echo "<tbody>" ;
+        while ($row=mysqli_fetch_assoc($result))
         {
-            echo "<br>" ;
-            echo "<br>" ;
-            echo '<table border="2" style="border: 2px solid black; text-align: center; margin: auto; padding: 0px ; width: 400px ; background-color: white; box-shadow: 13px 17px 10px rgba(0,0,0,1); position: relative;top: 135px;">' ;
-            echo "<caption><h2>The Requird Details Are Here !<h2> </caption>";
-            echo "<tr>" ;
-            echo "<thead>" ;
-            echo "<th>Name</th>" ;
-            echo "<th>Address</th>" ;
-            echo "<th>Fees</th>" ;
-            echo "<th>Delete</th>" ;
-            echo "</thead>" ;
-            echo "</tr>" ;
-            echo "<tbody>" ;
-            while ($row=mysqli_fetch_assoc($result))
-            {
-                echo "<tr>";
-                echo "<td>".$row['Name']."</td>";
-                echo "<td>".$row['Address']."</td>";
-                echo "<td>".$row['Fees']."</td>";
-                echo '<td> <form action="" method="POST"
-                style="
-                padding: 0px;
-                margin: 0px;
-                border: 2px solid white ;
-                width : 120px;
-                height: 50px;
-                background-color: white;
-                box-shadow: 0px 0px 0px rgba(0,0,0,0);
-                ">
-                <input type="hidden" name="Srno" value='.$row["Srno"].'>
-                <input type="submit" value="Delete" name="rdel" id="btn">
-                </form>
-                </td>';
+            echo "<tr>";
+            echo "<td>".$row['Name']."</td>";
+            echo "<td>".$row['Address']."</td>";
+            echo "<td>".$row['Fees']."</td>";
+            echo '<td> <form action="" method="POST"
+            style="
+            padding: 0px;
+            margin: 0px;
+            border: 2px solid white ;
+            width : 120px;
+            height: 50px;
+            background-color: white;
+            box-shadow: 0px 0px 0px rgba(0,0,0,0);
+            ">
+            <input type="hidden" name="Srno" value='.$row["Srno"].'>
+            <input type="submit" value="Delete" name="rdel" id="btn">
+            </form>
+            </td>';
 
-                echo "</tr>";
-            }
-            
-            echo "</tbody>" ;
-            echo '</table>' ;
+            echo "</tr>";
         }
-        else
-        {
-            echo '<script>window.alert("ID Not Found")</script>';
-            
-        }
+        
+        echo "</tbody>" ;
+        echo '</table>' ;
     }
-
+    else
+    {
+        echo '<script>window.alert("ID Not Found")</script>';
+        
+    }
      
  }
+ 
  ?>
  
  <!-- Ending PHP Codes for Creating Table -->
@@ -254,7 +253,7 @@
  if (isset($_REQUEST['rdel']))
  {
     $Srno = $_REQUEST['Srno'] ;
-    $sql = "DELETE FROM worker WHERE Srno='".$Srno."' " ;
+    $sql = "DELETE FROM workers WHERE Srno='".$Srno."' " ;
     if (mysqli_query($conn,$sql))
     {
         echo '<script>window.alert("Data Deleted Succesfully")</script>' ;
