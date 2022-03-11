@@ -78,12 +78,34 @@ input:focus{
 
 <!-- Ending HTML Codes For Taking Input of ID  -->
 
+
+
+
+
+
 <!-- Starting the PHP Codes for Insert Data -->
 
 <?php
 
-if (isset($_REQUEST[''])) {
-    # code...
+if (isset($_REQUEST['rsub']))
+{    
+    if ( ($_REQUEST['Srno']==""))
+    {
+        echo "<script>window.alert('Fill all the Fields')</script>" ;       
+    }
+
+    else
+    {
+        $Srno = $_REQUEST['Srno'] ;
+        $sql = " SELECT * FROM workers WHERE Srno='".$Srno."' " ;
+
+        $result = mysqli_query($conn,$sql) ;
+
+        if89
+
+        if
+    }
+ 
 }
 
 ?>
