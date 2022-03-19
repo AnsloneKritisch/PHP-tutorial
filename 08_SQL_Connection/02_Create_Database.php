@@ -29,12 +29,12 @@ $sql = " CREATE DATABASE School " ;
 
 if (mysqli_query($conn,$sql))
 {
-    echo '<script>window.alert("Table Created Sucessfully")</script>' ;
+    echo '<script>window.alert("Database Created Sucessfully")</script>' ;
 }
 
 else
 {
-    echo'<script>window.alert("Unable To Create Table")</script>';
+    echo'<script>window.alert("Unable To Create Database")</script>';
 }
 
 ?>

@@ -101,13 +101,82 @@ if (isset($_REQUEST['rsub']))
 
         $result = mysqli_query($conn,$sql) ;
 
-        if89
+        if (mysqli_num_rows($result))
+        {
+            echo "<br>" ;
+            echo "<br>" ;
+            echo '<table border="2" style="border: 2px solid black; text-align: center; margin: auto; padding: 7px ; width: 400px ; background-color: white; box-shadow: 13px 17px 10px rgba(0,0,0,1); ">' ;
+            echo "<caption><h2>The Requird Details Are Here !<h2> </caption>";
+            echo "<tr>" ;
+            echo "<thead>" ;
+            echo "<th>Name</th>" ;
+            echo "<th>Address</th>" ;
+            echo "<th>Fees</th>" ;
+            echo "<th>Delete</th>" ;
+            echo "</thead>" ;
+            echo "</tr>" ;
+            echo "<tbody>" ;
+            while ($row=mysqli_fetch_assoc($result))
+            {
+                echo "<tr>";
+                echo "<td>".$row['Name']."</td>";
+                echo "<td>".$row['Address']."</td>";
+                echo "<td>".$row['Fees']."</td>";
+                echo '<td> <form action="" method="POST"
+                style="
+                padding: 0px;
+                margin: 0px;
+                border: 2px solid white ;
+                width : 12px;
+                height: 50px;
+                background-color: white;
+                box-shadow: 0px 0px 0px rgba(0,0,0,0);
+                ">
+                <input type="hidden" name="Srno" value='.$row["Srno"].'>
+                <input type="submit" value="Delete" name="rdel" id="btn">
+                </form>
+                </td>';
 
-        if
+                echo "</tr>";
+            }
+            
+            echo "</tbody>" ;
+            echo '</table>' ;
+        }
+        else
+        {
+            echo '<script>window.alert("ID Not Found")</script>';
+            
+        }
+        
     }
- 
+            
 }
 
 ?>
 
 <!-- Ending the PHP Codes for Insert Data -->
+
+
+<!-- Starting PHP Codes to Delete Data -->
+<?php
+
+if (isset($_REQUEST['rdel']))
+{
+   $Srno = $_REQUEST['Srno'] ;
+   $sql = "DELETE FROM workers WHERE Srno='".$Srno."' " ;
+   if (mysqli_query($conn,$sql))
+   {
+       echo '<script>window.alert("Data Deleted Succesfully")</script>' ;
+       echo '<script>location.href="09_Data_Search_and_Delete_Data.php "</script>' ;
+   }
+
+   else
+   {
+       echo '<script>window.alert("Unable to Delete Data")</script>'   ; 
+   }
+}
+
+?>
+
+<!-- Ending PHP Codes to Delete Data -->
