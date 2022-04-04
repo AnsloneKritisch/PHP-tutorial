@@ -22,3 +22,8 @@ else
 ?>
 <!-- Ending PHP Codes for Database Connection -->
 
+<!-- Starting PHP Codes For HTML Form -->
+
+
+
+<!-- Ending PHP Codes For HTML Form -->
