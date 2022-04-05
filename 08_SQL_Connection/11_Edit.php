@@ -108,6 +108,21 @@ if(!$conn)
     </style>
 </head>
 <body>
+
+<?php
+if(isset($_REQUEST['edit']))
+{
+    $srno=$_REQUEST['srno'];
+    $sql="SELECT *FROM register WHERE srno='".$srno."'";
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_assoc($result);
+}
+?>
+
+
+
+
+
     <div class="main">
 
         <div class="box" id="box1">
@@ -130,16 +145,20 @@ if(!$conn)
 
         <div class="box" id="box2">
             <form action="" method="post">
-                Name: <input type="text" name="name" id="" placeholder="Write your Name">
+                Name: <input type="text" name="name" id="" placeholder="Write your Name"
+                value="<?php if(isset($row['name'])){echo $row['name'];} ?>">
                 <br> <br>
-                E-Mail: <input type="email" name="email" id="" placeholder="Write your Email">
+                E-Mail: <input type="email" name="email" id="" placeholder="Write your Email"
+                value="<?php if(isset($row['email'])){echo $row['email'];} ?>" readonly>
                 <br> <br>
-                Password: <input type="password" name="" id="">
+                Password: <input type="password" name="pass" id="" placeholder="Password"
+                value="<?php if(isset($row['pass'])){echo $row['pass'];} ?>">
                 <br> <br>
-                Confirm Passsword : <input type="password" name="" id="">
+                Confirm Passsword : <input type="password" name="conpass" id="" placeholder="Confirm Password"
+                value="<?php if(isset($row['conpass'])){echo $row['conpass'];} ?>">
                 <br> <br>
                 <br> <br>
-                <input type="submit" value="Update" name="" class="btn">
+                <input type="submit" value="Update" name="update" class="btn">
             </form>
         </div>
 
@@ -271,6 +290,68 @@ if (isset($_REQUEST['show']))
 <!-- Starting PHP Codes to delete Data -->
 
 
+<?php
+
+if(isset($_REQUEST['del']))
+{
+    $srno = $_REQUEST['srno'] ;
+    $sql = "DELETE FROM register WHERE srno='".$srno."' " ;
+    
+    if (mysqli_query($conn,$sql))
+    {
+        echo '<script>window.alert("Data Deleted Succesfully")</script>' ;
+        echo '<script>location.href="11_Edit.php"</script>' ;
+    }
+    
+    else
+    {
+        echo '<script>window.alert("Unable to Delete Data")</script>'   ; 
+    }
+
+}
+
+
+?>
 
 
 <!-- Ending PHP Codes to delete Data -->
+
+
+<!-- Starting PHP Codes to Update Data -->
+
+<?php
+
+if(isset($_REQUEST['update']))
+{
+    if(($_REQUEST['name']=="")||($_REQUEST['email']=="")||($_REQUEST['pass']=="")||($_REQUEST['conpass']==""))
+    {
+        echo'<script>window.alert("Please Fill all The Fields")</script>';
+    }
+
+    else
+    {
+        $name = $_REQUEST['name'];
+        $email = $_REQUEST['email'];
+        $pass = $_REQUEST['pass'];
+        $conpass = $_REQUEST['conpass'];
+        
+        $sql="UPDATE register SET name='$name',email='$email',pass='$pass',conpass='$conpass'
+        WHERE email='".$email."'";
+        
+        if(mysqli_query($conn,$sql))
+        {
+            echo'<script>window.alert("Data Updated Succesfully")</script>';
+            echo'<script>location.href="11_Edit.php"</script>';
+        }
+        
+        else
+        {
+            echo'<script>window.alert("Data Updated Succesfully")</script>';
+        }
+    }
+}
+
+?>
+
+
+<!-- Ending PHP Codes to Update Data -->
