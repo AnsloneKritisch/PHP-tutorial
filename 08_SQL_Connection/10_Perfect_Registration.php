@@ -32,8 +32,9 @@ if(!$conn)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registation Form</title>
     <style>
+
        
-       *{
+*{
             margin : 0px ;
             padding : 0px ;
 
@@ -41,8 +42,8 @@ if(!$conn)
 
         form{
             border: 2px solid black ;
-            width : 294px;
-            height: 228px;
+            width : 343px;
+            height: 337px;
             padding: 38px;
             margin: auto;
             background-color: white;
@@ -78,6 +79,7 @@ if(!$conn)
             font-size: 16px;
         }
 
+    
     </style>
 
 </head>
@@ -96,7 +98,7 @@ if(!$conn)
         </div>
         <br>
         <div>
-            Confirm Password : <input type="password" name="pass" id="" placeholder="Password">
+            Confirm Password : <input type="password" name="conpass" id="" placeholder="Confirm Password">
         </div>
         <br>
         <div>
@@ -108,3 +110,60 @@ if(!$conn)
  
 
 <!-- Ending PHP Codes For HTML Form -->
+
+
+
+<!-- Starting PHP Codes for Inserting Data  -->
+
+<?php
+
+if (isset($_REQUEST['reg']))
+{
+    if(($_REQUEST['name']=="")||($_REQUEST['email']=="")||($_REQUEST['pass']=="")||($_REQUEST['conpass']==""))
+    {
+        echo'<script>window.alert("Please Fill all The Fields")</script>';
+    }
+
+    else
+    {
+        $name = $_REQUEST['name'];
+        $email = $_REQUEST['email'];
+        $pass = $_REQUEST['pass'];
+        $conpass = $_REQUEST['conpass'];
+        
+        $sql="SELECT email FROM register WHERE email='".$email."'";
+        $result=mysqli_query($conn,$sql);
+        
+        if(mysqli_num_rows($result)==1)
+        {
+            echo'<script>window.alert("Email Already Registered")</script>';
+        }
+        
+        else
+        {
+            if($pass==$conpass)
+            {
+                $sql="INSERT INTO register(name,email,pass,conpass)VALUES('$name','$email','$pass','$conpass')";
+                
+                if(mysqli_query($conn,$sql))
+                {
+                    echo'<script>window.alert("Registration Succesfully")</script>';
+                }
+            }
+            
+            else
+            {
+                echo'<script>window.alert("Password and Confirm Password Must Be Same")</script>';
+            }
+        
+        }
+    }
+
+
+}
+
+?>
+
+
+
+<!-- Ending PHP Codes for Inserting Data  -->
