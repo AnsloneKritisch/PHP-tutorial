@@ -102,7 +102,7 @@ if(!$conn)
 
     #btn{
         border: 2px solid black ;
-        paddind : 10px ;
+        padding : 10px ;
     }
       
     </style>
@@ -249,7 +249,7 @@ if (isset($_REQUEST['show']))
         echo"</thead>";
         echo"</tr>";
         echo"<tbody>";
-        
+         
         while($row=mysqli_fetch_assoc($result))
         {
             echo'<tr>';
@@ -275,7 +275,7 @@ if (isset($_REQUEST['show']))
         echo '</table>' ;
         echo'</div>';
 
-}
+    }
 
 }
 
