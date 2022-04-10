@@ -97,7 +97,7 @@ include('01_database.php');
       <br> <br>
       <input type="password" name="pass" id="" placeholder="Password">
       <br><br>
-      <input type="submit" value="Log In" name="login" class="btn">
+      <input type="submit" value="Log In" name="log" class="btn">
       <a href="02_signup.php"><input type="button" value="Sign Up" class="btn"></a>
     </form>
   </div>
@@ -105,3 +105,47 @@ include('01_database.php');
 </html>
 
 <!-- Ending HTML Codes for login -->
+
+<!-- Starting PHP Codes For Checking Data -->
+<?php
+
+session_start();
+if(!isset($_SESSION['islogin']))
+{
+    if(isset($_REQUEST['log']))
+    {
+        if(($_REQUEST['email']=="")||($_REQUEST['pass']==""))
+        {
+            echo'<script>window.alert("Please Fill all The Fields")</script>';
+        }
+        else
+        {
+            $name=$_REQUEST['name']; 
+            $email=$_REQUEST['email']; 
+            $pass=$_REQUEST['pass'];
+            $sql=" SELECT email , pass FROM login WHERE email='".$email."' && pass='".$pass."' ";
+            $result=mysqli_query($conn,$sql);
+            if(mysqli_num_rows($result)==1)
+            {
+                $_SESSION['email']=$email;
+                $_SESSION['islogin']=true;
+                echo'<script>location.href="profile.php"</script>';
+            }
+            
+            else
+            {
+                echo'<script>window.alert("Wrong Email or Password ")</script>';
+            }
+        }
+    }
+}
+
+else
+{
+    echo'<script>location.href="profile.php"</script>';
+}
+
+?>
+<!-- Ending PHP Codes For CHecking Data -->
+
+
