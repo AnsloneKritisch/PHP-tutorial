@@ -105,3 +105,50 @@ include('01_database.php');
 </body>
 </html>
 <!-- Ending HTML Codes for Sign up -->
+
+
+<!-- Starting PHP Codes to Insering Data -->
+
+<?php
+if(isset($_REQUEST['reg']))
+{
+  if(($_REQUEST['name']=="")||($_REQUEST['email']=="")|| ($_REQUEST['pass']=="")||($_REQUEST['conpass']==""))
+  {
+    echo'<script>window.alert("Please Fill all The Fields")</script>';
+  }
+  
+  else
+  {
+    $name=$_REQUEST['name']; 
+    $email=$_REQUEST['email']; 
+    $pass=$_REQUEST['pass'];
+    $conpass=$_REQUEST['conpass']; 
+    $sql="SELECT email FROM login WHERE email='".$email."'";
+    
+    $result=mysqli_query($conn,$sql);
+    
+    if(mysqli_num_rows($result)==1)
+    {
+      echo'<script>window.alert("Email Already Registered")</script>';
+    }
+    
+    else
+    {
+      if($pass==$conpass)
+      {
+        $sql="INSERT INTO login (name,email,pass,conpass)VALUES('$name','$email','$pass','$conpass')";
+        if(mysqli_query($conn,$sql))
+        {
+          echo'<script>window.alert("Registration Succesfully")</script>';
+        }
+      }
+      else
+      {
+        echo'<script>window.alert("Password and Confirm Password Must Be Same")</script>';
+      }
+    }
+  }
+}
+?>
+
+<!-- Ending PHP Codes to Insering Data -->
