@@ -129,7 +129,7 @@ if(!isset($_SESSION['islogin']))
             {
                 $_SESSION['email']=$email;
                 $_SESSION['islogin']=true;
-                echo'<script>location.href="profile.php"</script>';
+                echo'<script>location.href="04_home.php"</script>';
             }
             
             else
@@ -142,7 +142,7 @@ if(!isset($_SESSION['islogin']))
 
 else
 {
-    echo'<script>location.href="profile.php"</script>';
+    echo'<script>location.href="04_home.php"</script>';
 }
 
 ?>

@@ -1,3 +1,14 @@
+<?php
+include('01_database.php');
+session_start();
+if(isset($_SESSION['islogin']))
+{
+echo "Welcome".$_SESSION['email'];
+}
+else{
+  echo'<script>location.href="04_login.php"</script>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
