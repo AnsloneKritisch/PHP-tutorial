@@ -17,6 +17,8 @@ include('01_database.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <style>
+
+   
    
     
    body{
@@ -29,16 +31,16 @@ include('01_database.php');
     }
 
     .box{
-      width: 300px;
-      padding: 40px ;
+      width: 307px;
+      padding: 44px;
       position: absolute ;
       top: 50% ;
       left:50% ;
       transform: translate(-50% , -50%) ;
-      background: #191919;
+      background: #000;
       text-align:center;     
-      height: 556px;
-      box-shadow: 7px 10px 26px 20px #000;
+      height: 369px;
+      box-shadow: 7px 10px 26px 20px #10d0ef;
     }
 
     .box h1{
@@ -84,6 +86,7 @@ include('01_database.php');
       background: #2ecc71 ;
     }
 
+  
   </style>
 </head>
 <body>
@@ -95,7 +98,7 @@ include('01_database.php');
       <input type="password" name="pass" id="" placeholder="Password">
       <br><br>
       <input type="submit" value="Log In" name="login" class="btn">
-      <a href=""><input type="button" value="Sign Up" class="btn"></a>
+      <a href="02_signup.php"><input type="button" value="Sign Up" class="btn"></a>
     </form>
   </div>
 </body>
