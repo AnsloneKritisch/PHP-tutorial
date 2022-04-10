@@ -119,8 +119,7 @@ if(!isset($_SESSION['islogin']))
             echo'<script>window.alert("Please Fill all The Fields")</script>';
         }
         else
-        {
-            $name=$_REQUEST['name']; 
+        { 
             $email=$_REQUEST['email']; 
             $pass=$_REQUEST['pass'];
             $sql=" SELECT email , pass FROM login WHERE email='".$email."' && pass='".$pass."' ";
