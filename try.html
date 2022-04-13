@@ -6,17 +6,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome</title>
   <style>
-    body{
-      background: url(li.gif);
-      background-repeat: no-repeat;
-    }
+   *{
+    margin:0px ;
+    padding:0px;
+}
 
-  </style>
+body{
+    background-color: black ;
+    color: white;
+    
+}
+
+.box{
+    width: 1170px;
+    margin: auto ;
+}
+
+header{
+    height: 100vh ;
+    position: relative;
+    
+}
+
+.nav{
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+    
+    
+}
+
+.nav li{
+    display: inline-block ;
+    
+}
+
+.nav li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 20px;
+    font-family: poppins;
+    font-size: 25px ;
+    
+        
+}
+.nav li a:hover{
+     background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+    
+}
+
+</style>
 </head>
 <body>
-  <h1>Weclome </h1>
+  <div class="box">
 
-  <a href="05_logout.php"> <input type="button" value="Log Out"> </a>
-  
+    <ul class="nav">
+
+      <li><a href="">
+        <span></span><span></span><span></span><span></span>
+        Home</a></li>
+
+      <li><a href="">
+        <span></span><span></span><span></span><span></span>
+        Logout</a></li>
+    </ul>
+
+    <div class="wel">
+      <h1>Welcome</h1>
+    </div>
+  </div>
+
 </body>
 </html>
