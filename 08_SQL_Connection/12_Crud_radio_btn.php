@@ -30,10 +30,10 @@ if(!$conn)
     
     <?php
     
-    if(isset($_REQUEST['rEdit']))
+    if(isset($_REQUEST['edit']))
     {
-        $Srno=$_REQUEST['Srno'];
-        $sql="SELECT *FROM workers WHERE Srno='".$Srno."'";
+        $srno=$_REQUEST['srno'];
+        $sql="SELECT *FROM radio_btn WHERE srno='".$srno."'";
         $result=mysqli_query($conn,$sql);
         $row=mysqli_fetch_assoc($result);
     }
@@ -68,7 +68,7 @@ if(!$conn)
 
         <input type="submit" value="Register" name="reg">
         <input type="submit" value="Show Tables" name="show">
-        <input type="hidden" name="Srno" value="<?php if(isset($row['Srno'])) {echo $row['Srno'];}?>">
+        <input type="hidden" name="srno" value="<?php if(isset($row['srno'])) {echo $row['srno'];}?>">
         <input type="submit" value="Update" name="update">
     
     </form>
@@ -145,12 +145,12 @@ if (isset($_REQUEST['show']))
             echo"<td>".$row['country']."</td>";
             echo '<td> <form action="" method="POST" >
             <input type="hidden" name="srno" value='.$row["srno"].'>
-            <input type="submit" value="Delete" name="rdel" id="btn">
+            <input type="submit" value="Delete" name="del" id="btn">
             </form>
             </td>';
             echo '<td> <form action="" method="POST" >
             <input type="hidden" name="srno" value='.$row["srno"].'>
-            <input type="submit" value="Edit" name="rEdit" id="btn">
+            <input type="submit" value="Edit" name="edit" id="btn">
             </form>
             </td>';
             
@@ -167,43 +167,47 @@ if (isset($_REQUEST['show']))
 
 <!--------- Starting PHP Codes to Delete Data ------------------->
 <?php
-if(isset($_REQUEST['rdel']))
+
+if(isset($_REQUEST['del']))
 {
-$Srno = $_REQUEST['Srno'] ;
-$sql = "DELETE FROM workers WHERE Srno='".$Srno."' " ;
-if (mysqli_query($conn,$sql))
-{
-echo '<script>window.alert("Data Deleted Succesfully")</script>' ;
-echo '<script>location.href="crud3.php"</script>' ;
+  $srno = $_REQUEST['srno'] ;
+  $sql = "DELETE FROM radio_btn WHERE srno='".$srno."' " ;
+  
+  if (mysqli_query($conn,$sql))
+  {
+    echo '<script>window.alert("Data Deleted Succesfully")</script>' ;
+    echo '<script>location.href="12_Crud_radio_btn.php"</script>' ;
+  }
+  
+  else
+  {
+    echo '<script>window.alert("Unable to Delete Data")</script>'   ; 
+  }
+
 }
-else
-{
-echo '<script>window.alert("Unable to Delete Data")</script>'   ; 
-}
-}
+
 ?>
 <!---------Ending PHP Codes to Delete Data----------------------->
 
 
 <!---------Ending PHP Codes to Update Data----------------------->
 <?php
-if(isset($_REQUEST['rUpdate']))
+
+if(isset($_REQUEST['update']))
 {
-if(($_REQUEST['name']=="")||($_REQUEST['address']=="")||($_REQUEST['fees']=="")||empty($_REQUEST['gen'])||empty($_REQUEST['country']))
+if(($_REQUEST['name']=="")||empty($_REQUEST['gender'])|| empty($_REQUEST['country']))
   {
     echo'<script>window.alert("Please Fill all The Fields")</script>';
   }
   
   else
   {
-    $Srno=$_REQUEST['Srno'];
+    $srno=$_REQUEST['srno'];
     $name=$_REQUEST['name'];
-    $address=$_REQUEST['address'];
-    $fees=$_REQUEST['fees'];
     $gen=$_REQUEST['gen'];
     $country=$_REQUEST['country'];
     $sql="UPDATE workers SET Name='$name', Address='$address', Fees='$fees',Gender='$gen' , Country='$country'
-    WHERE Srno ='".$Srno."'";
+    WHERE srno ='".$srno."'";
     if(mysqli_query($conn,$sql))
     {
       echo'<script>window.alert("Data Updated Succesfully")</script>';
