@@ -1,23 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+    
+    *{
+        padding: 0px;
+        margin: 0px;
+        outline: none;
+        box-sizing: border-box;
+    }
+    
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        padding:40px;
+        background-image: linear-gradient(to bottom, #c955ac, #fb7702);
+        background-repeat: no-repeat ;
+        background-size: 8890px 786px;
+        /*! background-color: black; */
+    }
+    
+    .main{
+        display: flex;
+    }
+    
+    .box{
+        margin: 10px ;
+        padding: 20px;
+        width: 401px;
+        height:  436px;
+        box-sizing: border-box;
+        text-align: center;
+        box-shadow: 0px 10px 10px rgba(0,0,0,1);
+        justify-content: space-evenly;
+        background-color: white;
+    }
+
+    input{
+        border: none ;
+        border-bottom: 2px solid black;
+        padding: 9px;
+        margin: 7px;
+    }
+
+    input:focus{
+        outline: none;
+    }
+    
+    .btn{
+        border:2px solid black;
+        padding: 14px;
+        width: 138px;
+    }
+
+    #box2{
+        order: 3;
+    }
+
+    #box4{
+        order: -1; 
+        padding: 1px;
+        width: 550px;
+
+    }
+
+    #box1{
+        order:1 ;
+    }
+
+    #btn{
+        border: 2px solid black ;
+        padding : 10px ;
+    }
+      
+    </style>
 </head>
 <body>
-  <div class="box">
-    <form action="" method="POST">
-      Name: <input type="text" name="name" id=""> <br> <br>
-      Gender: Male <input type="radio" name="gender"> Female <input type="radio" name="gender"> <br> <br>
-      <select name="country">
-        <option value="" selected >Select Your Country</option>
-        <option value="India">India</option>
-        <option value="Nepal">Nepal</option>
-        <option value="Japan">Japan</option> 
-      </select>
-    </form>
-  </div>
+
+<?php
+if(isset($_REQUEST['edit']))
+{
+    $srno=$_REQUEST['srno'];
+    $sql="SELECT *FROM register WHERE srno='".$srno."'";
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_assoc($result);
+}
+?>
+
+
+
+
+
+    <div class="main">
+
+        <div class="box" id="box1">
+            <form action="" method="post">
+              Name: <input type="text" name="name" id=""> <br> <br>
+              Gender: Male <input type="radio" name="gender"> Female <input type="radio" name="gender"> <br> <br>
+              <select name="country">
+                <option value="" selected >Select Your Country</option>
+                <option value="India">India</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Japan">Japan</option> 
+              </select>
+              <br>
+              <br>
+              <input type="submit" value="Register Now" name="reg" cla>
+              <input type="submit" value="Show Tables" name="show">
+            </form>
+        </div>
+
+       
+
+        <div class="box" id="box2">
+            <form action="" method="post">
+              Name: <input type="text" name="name" id=""> <br> <br>
+              Gender: Male <input type="radio" name="gender"> Female <input type="radio" name="gender"> <br> <br>
+              <select name="country">
+                <option value="" selected >Select Your Country</option>
+                <option value="India">India</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Japan">Japan</option> 
+              </select>
+              <br>
+              <br>
+              <input type="submit" value="Register Now" name="reg">
+              <input type="submit" value="Show Tables" name="show">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
