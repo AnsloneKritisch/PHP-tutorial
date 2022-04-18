@@ -62,6 +62,7 @@ if(isset($_REQUEST['rEdit']))
     <?php if(in_array("SQL",$b)){echo "checked";} ?>><br><br>
     
     <input type="submit" value="Register" name="reg">
+    <input type="submit" value="Show Tables" name="show">
     <input type="hidden" name="srno" value="<?php if(isset($row['srno'])){echo $row['srno'];} ?>">
     <input type="submit" value="Update" name="update">
 </form>
@@ -107,7 +108,7 @@ else
 <?php
 
 echo "<br><br>";
-if(isset($_REQUEST['reg']))
+if(isset($_REQUEST['show']))
 {
     $sql="SELECT *FROM checkbox";
     $result=mysqli_query($conn,$sql);
