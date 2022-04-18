@@ -28,7 +28,7 @@ die("Connection Failed");
 <?php
 $a=[];
 $b=[];
-if(isset($_REQUEST['rEdit']))
+if(isset($_REQUEST['edit']))
 {
     $srno=$_REQUEST['srno'];
     $sql="SELECT *FROM checkbox WHERE srno='".$srno."'";
@@ -42,7 +42,8 @@ if(isset($_REQUEST['rEdit']))
 <form action="" method="POST">
     <h1>Skills</h1>
 
-    Name: <input type="text" name="name">
+    Name: <input type="text" name="name" placeholder="Write your Name"
+    value="<?php if(isset($row['name'])){echo $row['name'];} ?>">
 
     <br><br>
     
@@ -129,11 +130,11 @@ if(isset($_REQUEST['show']))
             echo"<td>".$row['name']."</td>";
             echo"<td>".$row['plang']."</td>";
             echo'<td><form action="" method="POST">
-            <input type="hidden" name="rId" value='.$row["rId"].'>
-            <input type="submit" value="Delete" name="rDelete"></form></td>';
+            <input type="hidden" name="srno" value='.$row["srno"].'>
+            <input type="submit" value="Delete" name="del"></form></td>';
             echo'<td><form action="" method="POST">
-            <input type="hidden" name="rId" value='.$row["rId"].'>
-            <input type="submit" value="Edit" name="rEdit"></form></td>';
+            <input type="hidden" name="srno" value='.$row["srno"].'>
+            <input type="submit" value="Edit" name="edit"></form></td>';
             echo'</tr>';
         }
         echo"</tbody>";
@@ -143,3 +144,53 @@ if(isset($_REQUEST['show']))
 
 ?>
 <!-----------------------End PHP Code For Fetch Data----------------------->
+
+<!----------------------Start PHP Code For Delete Data--------------------->
+<?php
+
+if(isset($_REQUEST['del']))
+{
+    $srno=$_REQUEST['srno'];
+    $sql="DELETE FROM checkbox WHERE srno='".$srno."'";
+    if(mysqli_query($conn,$sql))
+    {
+        echo'<script>window.alert("Data Deleted Succesfully")</script>';
+        echo'<script>location.href="13_Checkbox.php"</script>';
+    }
+    else
+    {
+        echo'<script>window.alert("Unable to Delete Data")</script>';
+    }
+}
+
+?>
+<!----------------------End PHP Code For Delete Data---------------------->
+<!----------------------End PHP Code For Update Data---------------------->
+<?php
+if(isset($_REQUEST['update']))
+{
+if(empty($_REQUEST['plang']))
+  {
+    echo'<script>window.alert("Please Fill all The Fields")</script>';
+  }
+  
+  else
+  {
+    $srno=$_REQUEST['srno'];
+    $name=$_REQUEST['name'];
+    $rEdu=$_REQUEST['plang'];
+    $rFinalEdu=implode(',',$rEdu);
+  $sql="UPDATE checkbox SET plang='$rFinalEdu' , name='$name' WHERE srno='".$srno."'";
+  if(mysqli_query($conn,$sql))
+{
+echo'<script>window.alert("Data Updated Succesfully")</script>';
+echo'<script>location.href="13_Checkbox.php"</script>';
+}
+else
+{
+echo'<script>window.alert("Unable to Update Data")</script>';
+}
+  }
+}
+?>
+<!----------------------End PHP Code For Update Data---------------------->
