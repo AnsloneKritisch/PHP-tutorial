@@ -43,24 +43,24 @@ if(!$conn)
     <form action="" method="POST">
 
         Name:<input type="text" placeholder="Type Your Name Here" name="name" 
-        value="<?php if(isset($row['Name'])){echo $row['Name'];} ?>">
+        value="<?php if(isset($row['name'])){echo $row['name'];} ?>">
         <br><br>
 
         Gender:
         Male<input type="radio" name="gender" value="Male" 
-        <?php if(isset($row['Gender'])&&($row['Gender']=='Male')){echo "checked";} ?>> 
+        <?php if(isset($row['gender'])&&($row['gender']=='Male')){echo "checked";} ?>> 
         Female<input type="radio" name="gender" value="Female"
-        <?php if(isset($row['Gender'])&&($row['Gender']=='Female')){echo "checked";} ?>>
+        <?php if(isset($row['gender'])&&($row['gender']=='Female')){echo "checked";} ?>>
         <br><br>
 
         Please Select Your Country :
         <select name="country">
             <option value="">Select Your Country</option>
-            <option value="India" <?php if(isset($row['Country'])&&($row['Country']=="India")){echo "selected";} ?>> 
+            <option value="India" <?php if(isset($row['country'])&&($row['country']=="India")){echo "selected";} ?>> 
             India</option>
-            <option value="Pakistan" <?php if(isset($row['Country'])&&($row['Country']=="Pakistan")){echo "selected";} ?> >
+            <option value="Pakistan" <?php if(isset($row['country'])&&($row['country']=="Pakistan")){echo "selected";} ?> >
             Pakistan</option>
-            <option value="Nepal" <?php if(isset($row['Country'])&&($row['Country']=="Nepal")){echo "selected";} ?>>
+            <option value="Nepal" <?php if(isset($row['country'])&&($row['country']=="Nepal")){echo "selected";} ?>>
             Nepal</option>
             
         </select>
@@ -129,8 +129,8 @@ if (isset($_REQUEST['show']))
         echo"<tr>";
         echo"<thead>";
         echo"<th>Name</th>";
-        echo"<th>Gender</th>";
-        echo"<th>Country</th>";
+        echo"<th>gender</th>";
+        echo"<th>country</th>";
         echo"<th>Delete</th>";
         echo"<th>Edit</th>";
         echo"</thead>";
@@ -204,21 +204,23 @@ if(($_REQUEST['name']=="")||empty($_REQUEST['gender'])|| empty($_REQUEST['countr
   {
     $srno=$_REQUEST['srno'];
     $name=$_REQUEST['name'];
-    $gen=$_REQUEST['gen'];
+    $gender=$_REQUEST['gender'];
     $country=$_REQUEST['country'];
-    $sql="UPDATE workers SET Name='$name', Address='$address', Fees='$fees',Gender='$gen' , Country='$country'
+    $sql="UPDATE radio_btn SET Name='$name', gender='$gender' , country='$country'
     WHERE srno ='".$srno."'";
     if(mysqli_query($conn,$sql))
     {
       echo'<script>window.alert("Data Updated Succesfully")</script>';
-      echo'<script>location.href="crud3.php"</script>';
+      echo'<script>location.href="12_Crud_radio_btn.php"</script>';
     }
-else
-{
-echo'<script>window.alert("Data Updated Succesfully")</script>';
+    
+    else
+    {
+      echo'<script>window.alert("Data Updated Succesfully")</script>';
+    }
+  }
 }
-}
-}
+
 ?>
 <!---------Ending PHP Codes to Update Data----------------------->
  
