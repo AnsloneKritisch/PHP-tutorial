@@ -36,7 +36,8 @@ if(isset($_REQUEST['edit']))
     $row=mysqli_fetch_assoc($result);
     $a=$row['plang'];
     $b=explode(',',$a);
-//print_r($b);
+    
+    //print_r($b);
 }
 ?>
 <form action="" method="POST">
@@ -180,17 +181,18 @@ if(empty($_REQUEST['plang']))
     $name=$_REQUEST['name'];
     $rEdu=$_REQUEST['plang'];
     $rFinalEdu=implode(',',$rEdu);
-  $sql="UPDATE checkbox SET plang='$rFinalEdu' , name='$name' WHERE srno='".$srno."'";
-  if(mysqli_query($conn,$sql))
-{
-echo'<script>window.alert("Data Updated Succesfully")</script>';
-echo'<script>location.href="13_Checkbox.php"</script>';
-}
-else
-{
-echo'<script>window.alert("Unable to Update Data")</script>';
-}
+    $sql="UPDATE checkbox SET plang='$rFinalEdu' , name='$name' WHERE srno='".$srno."'";
+    if(mysqli_query($conn,$sql))
+    {
+        echo'<script>window.alert("Data Updated Succesfully")</script>';
+        echo'<script>location.href="13_Checkbox.php"</script>';
+    }
+    else
+    {
+        echo'<script>window.alert("Unable to Update Data")</script>';
+    }
   }
 }
+
 ?>
 <!----------------------End PHP Code For Update Data---------------------->
