@@ -1,4 +1,5 @@
 <!--Starting PHP Codes for connecting Database -->
+
 <?php
  
  $host = "localhost" ;
@@ -13,7 +14,11 @@
      die("404 Error") ;
  }
  ?>
+ 
  <!--Ending PHP Codes for connecting Database -->
+
+
+
 
 <!-- Strarting HTML Codes for insering Data -->
 <!DOCTYPE html>
@@ -159,12 +164,10 @@ if(isset($_REQUEST['show']))
 
 <?php
 
-<?php
-
 if(isset($_REQUEST['del']))
 {
     $slno = $_REQUEST['slno'] ;
-    $sql = "DELETE FROM register WHERE slno='".$slno."' " ;
+    $sql = "DELETE FROM image WHERE slno='".$slno."' " ;
     
     if (mysqli_query($conn,$sql))
     {
@@ -178,12 +181,6 @@ if(isset($_REQUEST['del']))
     }
 
 }
-
-
-
-
-
-
 
 ?>
 
