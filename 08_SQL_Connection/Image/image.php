@@ -28,14 +28,19 @@
             text-align: center;
         }
 
-        #tab{
-            padding: 12px ;
-            margin: 70px auto ;
+        .tab{
+            padding: 10px ;
+            margin: 20px auto ;
         }
 
         table, th, td {
             border: 1px solid black;
             border-collapse: collapse;
+        }
+
+        #btn{
+            border: 2px solid black ;
+            padding:10px ;
         }
 
     </style>
@@ -104,7 +109,7 @@ if(isset($_REQUEST['show']))
 
     if(mysqli_num_rows($result)>0)
     {
-        echo'<table border="1" id="tab">';
+        echo'<table border="1" class="tab">';
 
         echo"<tr>";
         
@@ -122,6 +127,12 @@ if(isset($_REQUEST['show']))
             echo'<tr>';
             echo"<td>".$row['name']."</td>";
             echo '<td> <img src="save/'.$row['image'].'" height="300" width="500"> </td>';
+            echo '<td> <form action="" method="POST" class="tab" >
+            <input type="hidden" name="slno" value='.$row["slno"].'>
+            <input type="submit" value="Delete" name="del" id="btn">
+            </form>
+            </td>';      
+
             echo "</tr>";
         }
 
@@ -147,6 +158,28 @@ if(isset($_REQUEST['show']))
 <!-- Starting PHP Codes Delete Data -->
 
 <?php
+
+<?php
+
+if(isset($_REQUEST['del']))
+{
+    $slno = $_REQUEST['slno'] ;
+    $sql = "DELETE FROM register WHERE slno='".$slno."' " ;
+    
+    if (mysqli_query($conn,$sql))
+    {
+        echo '<script>window.alert("Data Deleted Succesfully")</script>' ;
+        echo '<script>location.href="image.php"</script>' ;
+    }
+    
+    else
+    {
+        echo '<script>window.alert("Unable to Delete Data")</script>'   ; 
+    }
+
+}
+
+
 
 
 
