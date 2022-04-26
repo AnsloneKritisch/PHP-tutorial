@@ -24,10 +24,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image</title>
     <style>
-        #tab{
-            padding: 50px ;
-            margin: 40px auto ;
+        body{
+            text-align: center;
         }
+
+        #tab{
+            padding: 12px ;
+            margin: 70px auto ;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
     </style>
 </head>
 <body>
@@ -80,6 +90,9 @@ if (isset($_REQUEST['reg']))
 ?>
 <!-- Ending PHP Codes to Insert Data -->
 
+
+
+
 <!-- Starting PHP Codes TO Fetch Data -->
 
 <?php
@@ -91,13 +104,14 @@ if(isset($_REQUEST['show']))
 
     if(mysqli_num_rows($result)>0)
     {
-        echo'<table border="2" id="tab">';
+        echo'<table border="1" id="tab">';
 
         echo"<tr>";
         
         echo"<thead>";
         echo"<th>Name</th>";
         echo"<th>Photo Uploaded</th>";
+        echo"<th>Delete</th>";
         echo"</thead>"; 
         
         echo"</tr>";
@@ -107,7 +121,7 @@ if(isset($_REQUEST['show']))
         {
             echo'<tr>';
             echo"<td>".$row['name']."</td>";
-            echo '<td> <img src="save/'.$row['image'].'" height="300" width="300"> </td>';
+            echo '<td> <img src="save/'.$row['image'].'" height="300" width="500"> </td>';
             echo "</tr>";
         }
 
@@ -121,10 +135,23 @@ if(isset($_REQUEST['show']))
     {
         echo'<script>window.alert("Cannot Upload Image")</script>';
     }
-
 }
+
 ?>
 
-
-
 <!-- Ending PHP Codes TO Fetch Data -->
+
+
+
+
+<!-- Starting PHP Codes Delete Data -->
+
+<?php
+
+
+
+
+
+?>
+
+<!-- Ending PHP Codes Delete Data -->
