@@ -3,7 +3,8 @@ include('01_database.php');
 session_start();
 if(isset($_SESSION['islogin']))
 {
-echo "<h1> Welcome &nbsp;".$_SESSION['email']."</h1>";
+    // Passing the Name from Login page to Home Page and Display It 
+    echo "<h1> Welcome &nbsp;".$_SESSION['name']."</h1>";
 }
 else{
   echo'<script>location.href="04_login.php"</script>';
@@ -41,3 +42,22 @@ else{
 <a href="05_logout.php"> <input type="button" value="Log Out" id="btn"> </a>
 </body>
 </html>
+
+<!-- Starting PHP Codes for Login Count -->
+
+<?php
+$email = $_SESSION['email'] ;
+$sql="SELECT * FROM login where email='".$email."'";
+$result=mysqli_query($conn,$sql);
+$row=mysqli_fetch_assoc($result);
+$time = $row['time'];
+$time =  $time +  1 ;
+$sql1= " UPDATE login SET time = '$time' WHERE email='".$email."'" ;
+if(mysqli_query($conn,$sql1))
+        {
+          echo'<script>window.alert("Welcome")</script>';
+        }
+
+
+?>
+<!-- Ending PHP Codes for Login Count -->
