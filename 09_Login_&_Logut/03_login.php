@@ -124,9 +124,17 @@ if(!isset($_SESSION['islogin']))
             $pass=$_REQUEST['pass'];
             $sql=" SELECT email , pass FROM login WHERE email='".$email."' && pass='".$pass."' ";
             $result=mysqli_query($conn,$sql);
+
+            // Fetching Data to Pass Name To session To use The Name of the person instead of email Id
+            $sql1="SELECT *FROM login where email='".$email."'";
+            $result=mysqli_query($conn,$sql1);
+            $row=mysqli_fetch_assoc($result);
+            $name=$row['name'];
+
             if(mysqli_num_rows($result)==1)
             {
                 $_SESSION['email']=$email;
+                $_SESSION['name']=$name;
                 $_SESSION['islogin']=true;
                 echo'<script>location.href="04_home.php"</script>';
             }
