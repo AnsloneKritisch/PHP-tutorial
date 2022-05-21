@@ -1,0 +1,33 @@
+.b
+{
+border:3px solid black;
+height:100px;
+margin-top:120px;
+background-color: aqua;
+}
+
+.hw{
+    border: 5px solid tomato;
+    border-radius: 20px;
+    color: white;
+    height: 100px;
+    width: 500px;
+    margin-top: 50px;
+    background-color: black;
+    padding: 12px;
+}
+
+.w{
+    border: 5px solid tomato;
+    border-radius: 300px;
+    color: white;
+    height: 1000px;
+    overflow:auto;
+    margin-top: 50px;
+    background-color: black;
+    padding: 12px 21px;
+
+}
+p{
+    margin: 65px;
+}
