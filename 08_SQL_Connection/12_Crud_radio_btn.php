@@ -206,8 +206,10 @@ if(($_REQUEST['name']=="")||empty($_REQUEST['gender'])|| empty($_REQUEST['countr
     $name=$_REQUEST['name'];
     $gender=$_REQUEST['gender'];
     $country=$_REQUEST['country'];
+
     $sql="UPDATE radio_btn SET Name='$name', gender='$gender' , country='$country'
-    WHERE srno ='".$srno."'";
+    WHERE srno ='".$srno."' ";
+
     if(mysqli_query($conn,$sql))
     {
       echo'<script>window.alert("Data Updated Succesfully")</script>';
